@@ -8,16 +8,18 @@
 
 body {
     display: flex;
+    width: 100vw;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(45deg, black 50%, purple 50%);
+    background-image: linear-gradient(45deg, black 50%, purple 50%);    
 }
 
 .container {
-    width: 60%;
-    height: 400px;
+    width: 80vw;
+    height: 60vh;
+    border: red 2px solid;
 }
 
 h1 {
@@ -38,11 +40,12 @@ input {
 }
 
 .box {
-    width: 100vh;
+    width: 100%;
     padding: 2%;
     border-radius: 5px;
     background-color: #555555;
     box-shadow: 0px 0px 10px black;
+    box-sizing: border-box;
 }
 
 .box>button {
