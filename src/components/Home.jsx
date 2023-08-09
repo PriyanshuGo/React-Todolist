@@ -3,14 +3,15 @@ import home from "./home.css";
 import Task from "./Task.jsx";
 
 function Home() {
-  const [tasks, setTasks] = useState( JSON.parse(localStorage.getItem("tasks")) || [] );
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
   const [tittle, setTittle] = useState("");
 
   const addTask = () => {
-    console.log("adding task");
     // e.preventDefault();
     if (tittle !== "") {
-      setTasks([ tittle,...tasks]);
+      setTasks([tittle, ...tasks]);
       setTittle("");
     }
   };
@@ -18,19 +19,18 @@ function Home() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-useEffect(() => {
-  console.log("hello")
-}, [tasks])
-// aa
+
+  // aa
   const handleDelete = (taskToDelete) => {
     setTasks(tasks.filter((task) => task !== taskToDelete));
   };
-  
+
   return (
     <>
-      <div className="container">
-        <h1>todo</h1>
-        {/* <form onSubmit={addTask}> */}
+      <body>
+        <div className="container">
+          <h1>todo</h1>
+          {/* <form onSubmit={addTask}> */}
           <div className="box">
             <input
               type="text"
@@ -40,12 +40,18 @@ useEffect(() => {
             ></input>
             <button onClick={addTask}>Add</button>
             {tasks.map((task, index) => (
-              <Task key={index} tittle={task} onDelete={(task)=>{handleDelete(task)}} />
-             
+              <Task
+                key={index}
+                tittle={task}
+                onDelete={(task) => {
+                  handleDelete(task);
+                }}
+              />
             ))}
           </div>
-        {/* </form> */}
-      </div>
+          {/* </form> */}
+        </div>
+      </body>
     </>
   );
 }
