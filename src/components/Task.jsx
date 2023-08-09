@@ -6,7 +6,7 @@ function Task({ tittle, onDelete }) {
     <div className="tasks">
       <div>
         <span>{tittle}</span>
-        <button onClick={() => onDelete(tittle)}>Delete Task</button>
+        <button onClick={() => onDelete(tittle)}> - </button>
       </div>
     </div>
   );
