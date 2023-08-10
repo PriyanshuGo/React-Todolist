@@ -29,7 +29,7 @@ function Home() {
     <>
       <body>
         <div className="container">
-          <h1>todo</h1>
+          <h1>Todo List📄</h1>
           {/* <form onSubmit={addTask}> */}
           <div className="box">
             <input
